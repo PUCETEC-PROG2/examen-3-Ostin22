@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} {{disco}} {% endblock title %}
+{% block content %}
+    <h2>{{disco}}</h2>
+    <p>Has elegido al disco: <strong>{{ disco | capfirst }}</strong></p>
+    <h3>Caracteristicas:</h3>
+    <ul>
+        <li><img src="{{disco.picture.url}}" alt="" ></li>
+        <li>Genero: {{ disco.genre }}.</li>
+        <li>Año: {{ disco.year }}.</li>
+        <li>Artista: {{ disco.artist }}.</li>
+          
+    </ul>
+    <a href="/" class="btn btn-primary">Regresar</a>
+{% endblock content %}

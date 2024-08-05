@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} {{artist}} {% endblock title %}
+{% block content %}
+    <h2>{{artist}}</h2>
+    <p>Has elegido al Artista: <strong>{{ artist | capfirst }}</strong></p>
+    <h3>Caracteristicas:</h3>
+    <ul>
+        <li>Nombre: {{ artist.name }}.</li>
+        <li>Pais de origen: {{ artist.country }}.</li>
+          
+    </ul>
+    <a href="/artist/" class="btn btn-primary">Regresar</a>
+{% endblock content %}

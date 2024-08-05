@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Mis Discos{% endblock title %}
+{% block content %}
+    <p class="bg primary text-black p-4 text-center">En este sitio web podrás consultar la información de tus discos favoritos</p>
+
+    <div class="card-group">
+        {% for disco in discos %}
+            <div class="card">
+                <img src="{{ disco.picture.url }}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{ disco }}</h5>
+                    <p class="card-text">Genero: {{ disco.genre }}.</p>
+                    <p class="card-text">Año: {{ disco.year }}.</p>
+                    <p class="card-text">Artista: {{ disco.artist.name }}</p>
+                    <a href="disco/{{ disco.id }}" class="btn btn-primary">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a href="edit_disco/{{ disco.id }}" class="btn btn-primary">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                    <a href="delete_disco/{{ disco.id }}" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url "discos:add_disco" %}" class="btn btn-primary">Agregar Disco</a>
+    <a href="{% url "discos:artist_list" %}" class="btn btn-primary">Tus artistas</a>
+{% endblock content %}
